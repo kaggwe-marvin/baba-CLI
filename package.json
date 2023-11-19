@@ -1,0 +1,22 @@
+{
+  "name": "baba",
+  "version": "1.0.0",
+  "description": "abtraction to momo api",
+  "main": "bin/index.js",
+  "scripts": {
+    "test": "baba run momo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/kaggwe-marvin/baba"
+  },
+  "keywords": [
+    "test"
+  ],
+  "author": "kaggwe-marvin",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.2",
+    "uuid": "^9.0.1"
+  }
+}
