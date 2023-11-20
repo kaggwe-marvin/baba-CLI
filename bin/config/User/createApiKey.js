@@ -18,11 +18,14 @@ axios
   .then((response) => {
     console.log(`Response: ${response.status} ${response.statusText}`);
     console.log("API Key Response:", response.data);
-    // Convert the response data to a string and write it to config.js
-    const responseDataString = JSON.stringify(response.data, null, 2); // The '2' is for indentation
-    const configContent = `module.exports = ${responseDataString};`;
 
-    return fs.writeFile("config.js", configContent);
+    // Convert the response data to a string
+    const responseDataString = `module.exports = ${formatObject(
+      response.data
+    )};`;
+
+    // Write the response data to clientKey.js
+    return fs.writeFile("clientKey.js", responseDataString);
   })
   .catch((error) => {
     if (error.response) {
@@ -39,3 +42,25 @@ axios
       console.error("Error setting up the request:", error.message);
     }
   });
+
+// Function to format the object as a string without double quotes around keys
+function formatObject(obj) {
+  const result = [];
+  for (const key in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
+      result.push(`${key}: ${formatValue(obj[key])}`);
+    }
+  }
+  return `{ ${result.join(", ")} }`;
+}
+
+// Function to format the values inside the object
+function formatValue(value) {
+  if (typeof value === "object" && value !== null) {
+    return formatObject(value);
+  } else if (typeof value === "string") {
+    return `"${value}"`;
+  } else {
+    return value;
+  }
+}

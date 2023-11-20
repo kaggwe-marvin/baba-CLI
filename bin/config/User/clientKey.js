@@ -1,0 +1,1 @@
+module.exports = { apiKey: "3566f2072ead4e50b013d2e1e326f282" };
