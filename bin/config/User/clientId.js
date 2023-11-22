@@ -1,1 +1,1 @@
-module.exports = { clientId: '6704bbe7-41a5-431d-b746-d54051298424' };
+module.exports = { clientId: '569c594e-7bf4-4e90-9a83-ab9e3e5bc617' };
