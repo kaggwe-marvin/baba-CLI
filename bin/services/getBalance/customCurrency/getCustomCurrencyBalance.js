@@ -1,10 +1,12 @@
 const axios = require("axios");
-const { access_token } = require("../../config/Access/access");
+const { access_token } = require("../../../config/Access/access");
+
 const authHeader = access_token;
+const currency = "EUR"; // Set the currency code
 
 axios
   .get(
-    "https://sandbox.momodeveloper.mtn.com/collection/v1_0/account/balance",
+    `https://sandbox.momodeveloper.mtn.com/collection/v1_0/account/balance/${currency}`,
     {
       headers: {
         "Cache-Control": "no-cache",

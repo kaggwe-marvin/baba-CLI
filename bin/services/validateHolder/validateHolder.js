@@ -1,10 +1,14 @@
 const axios = require("axios");
 const { access_token } = require("../../config/Access/access");
+
 const authHeader = access_token;
+const accountHolderId = "0788320104";
+
+console.log("Account Holder ID:", accountHolderId);
 
 axios
   .get(
-    "https://sandbox.momodeveloper.mtn.com/collection/v1_0/account/balance",
+    `https://sandbox.momodeveloper.mtn.com/collection/v1_0/accountholder/msisdn/${accountHolderId}/active`,
     {
       headers: {
         "Cache-Control": "no-cache",
